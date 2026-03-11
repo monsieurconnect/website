@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: monsieur-connect:latest
+    container_name: monsieur-connect
+    labels:
+      - traefik.http.routers.monsieur-connect.rule=Host(`www.monsieurconnect.fr`) || Host(`monsieurconnect.fr`) || Host(`www.monsieurconnect.net`) || Host(`monsieurconnect.net`)
+      - traefik.http.routers.monsieur-connect.tls=true
+      - traefik.http.routers.monsieur-connect.tls.certresolver=lets-encrypt
+    restart: unless-stopped
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
+    name: web

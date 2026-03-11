@@ -85,6 +85,8 @@ section:nth-child(even) {
 #hero {
     position: relative;
     min-height: 85vh;
+    max-width: 900px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -100,7 +102,7 @@ section:nth-child(even) {
     background-image: url('images/hero-bg.png');
     background-size: cover;
     background-position: center;
-    opacity: 0.12;
+    opacity: 0.2;
     z-index: 0;
 }
 
